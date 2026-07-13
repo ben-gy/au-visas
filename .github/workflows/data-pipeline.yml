@@ -1,0 +1,33 @@
+name: Data Pipeline
+
+on:
+  schedule:
+    # SOURCE CADENCE: the BP0019 "Temporary visa holders" workbook is published
+    # MONTHLY on data.gov.au, so this runs MONTHLY (the fastest cadence allowed).
+    # Staggered to the 9th at 04:23 UTC so factory repos don't all fire together.
+    - cron: '23 4 9 * *'
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ['pipeline/**']
+
+permissions:
+  contents: write
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - run: cd pipeline && npm ci
+      - run: node pipeline/collect.mjs
+      - name: Commit data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add public/data/
+          git diff --cached --quiet || git commit -m "Update visa data $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          git push || (git pull --rebase && git push)

@@ -1,0 +1,9 @@
+{
+  "name": "au-visas-pipeline",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "dependencies": {
+    "fflate": "^0.8.2"
+  }
+}
