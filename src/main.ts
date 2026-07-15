@@ -121,7 +121,7 @@ function buildChrome(): void {
   footer.innerHTML = `
     <div class="foot-inner">
       <span>Data: <a href="${store.meta.sourceUrl}" target="_blank" rel="noopener">Dept of Home Affairs — Temporary visa holders in Australia</a> (${store.meta.licence}). Snapshot ${formatFullDate(store.meta.latestDate)}. Boundaries © Natural Earth.</span>
-      <span>Built by <a href="https://benrichardson.dev/">benrichardson.dev</a> · <a href="https://sites.benrichardson.dev" target="_blank" rel="noopener">more tools &amp; sites</a></span>
+      <span>Built by <a href="https://benrichardson.dev/">benrichardson.dev</a> · <a href="https://hub.benrichardson.dev" target="_blank" rel="noopener">more tools &amp; sites</a></span>
     </div>`;
 
   app.append(header, main, footer);
