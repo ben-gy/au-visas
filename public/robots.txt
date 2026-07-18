@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://visas.benrichardson.dev/sitemap.xml
