@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: AGPL-3.0-or-later
+// Copyright (C) 2026 Ben Richardson — https://benrichardson.dev
+// Additional terms under AGPL-3.0 section 7(b) apply; see ADDITIONAL-TERMS.md.
 // Pure Sankey column layout. Given node values, a column height and a gap,
 // return a { y, h } box per node — stacked top-to-bottom, heights proportional
 // to value, no overlap, all inside [0, height]. Exported separately so it can

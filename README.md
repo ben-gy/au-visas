@@ -69,6 +69,17 @@ cd pipeline && npm install && node collect.mjs
 
 The source `.xlsx` is an Excel pivot table; the full ~300,000-row fact table lives inside its embedded pivot *cache*. The pipeline (`pipeline/collect.mjs`) downloads the latest workbook from data.gov.au, unzips it, parses the pivot cache XML, and rolls it up into compact JSON in `public/data/` (per-country series, per-category series, per-subclass series, and a metadata file). A monthly GitHub Actions workflow re-runs the pipeline and commits refreshed data; the front end fetches those JSON files at load and renders every view client-side.
 
-## License
+## license
 
-MIT (code). Data © Commonwealth of Australia under CC BY 2.5 AU; boundaries © Natural Earth (public domain).
+[GNU Affero General Public License v3.0 or later](./LICENSE), with an attribution
+requirement added under section 7(b) — see
+[ADDITIONAL-TERMS.md](./ADDITIONAL-TERMS.md).
+
+In short: you may run, modify, redistribute and even sell this, but if you
+distribute it — or run a modified version where other people can reach it — you
+have to publish your source under the same licence and keep the attribution. A
+separate commercial licence without those obligations is available on request:
+<hi@ben.gy>.
+
+Third-party components keep their own licences — see
+[THIRD-PARTY-NOTICES.md](./THIRD-PARTY-NOTICES.md).
